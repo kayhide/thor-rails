@@ -60,10 +60,13 @@ EOS
     end
 
     def update_routes
-      route "get '/auth/:provider/callback' => 'session#create'"
-      route "get '/auth/failure'            => 'session#create'"
-      route "get '/session/'                => 'session#index',   as: :login"
-      route "delete '/session/logout'       => 'session#destroy', as: :logout"
+      route <<EOS
+get '/auth/:provider/callback' => 'session#create'
+get '/auth/failure'            => 'session#create'
+get '/session/'                => 'session#index',   as: :login
+delete '/session/logout'       => 'session#destroy', as: :logout
+
+EOS
     end
 
     def update_dotenv_sample

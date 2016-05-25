@@ -40,7 +40,7 @@ module UbermenschLogin
 
   def authenticate_admin!
     unless authenticated? :admin
-      redirect_back_or :root, alert: t('messages.permission_denied')
+      redirect_back_or login_url, alert: t('messages.permission_denied')
     end
   end
 
